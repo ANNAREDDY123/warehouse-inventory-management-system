@@ -15,8 +15,7 @@ from routers.stock import router as stock_router
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-    title="Warehouse Inventory Management System"
-)
+    title="Warehouse Inventory Management System")
 
 app.include_router(auth_router)
 app.include_router(product_router)
