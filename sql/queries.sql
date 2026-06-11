@@ -1,32 +1,31 @@
--- ====================================
+
 -- 1. Total Products
--- ====================================
+
 
 SELECT COUNT(*) AS total_products
 FROM products;
 
 
--- ====================================
+
 -- 2. Low Stock Products
--- ====================================
+
 
 SELECT *
 FROM products
 WHERE stock_quantity < 10;
 
 
--- ====================================
+
 -- 3. Total Stock Available
--- ====================================
 
 SELECT
     SUM(stock_quantity) AS total_stock
 FROM products;
 
 
--- ====================================
+
 -- 4. Products By Category
--- ====================================
+
 
 SELECT
     category,
@@ -35,9 +34,9 @@ FROM products
 GROUP BY category;
 
 
--- ====================================
+
 -- 5. Stock Added (INWARD)
--- ====================================
+
 
 SELECT
     product_id,
@@ -47,9 +46,9 @@ WHERE movement_type = 'INWARD'
 GROUP BY product_id;
 
 
--- ====================================
+
 -- 6. Stock Removed (OUTWARD)
--- ====================================
+
 
 SELECT
     product_id,
@@ -59,9 +58,9 @@ WHERE movement_type = 'OUTWARD'
 GROUP BY product_id;
 
 
--- ====================================
+
 -- 7. Product Stock Movement History
--- ====================================
+
 
 SELECT
     p.product_name,
@@ -74,17 +73,17 @@ ON p.id = s.product_id
 ORDER BY s.created_at DESC;
 
 
--- ====================================
+
 -- 8. Supplier Count
--- ====================================
+
 
 SELECT COUNT(*) AS total_suppliers
 FROM suppliers;
 
 
--- ====================================
+
 -- 9. Most Active Product
--- ====================================
+
 
 SELECT
     product_id,
@@ -94,9 +93,9 @@ GROUP BY product_id
 ORDER BY movements DESC;
 
 
--- ====================================
+
 -- 10. Rank Products By Stock
--- ====================================
+
 
 SELECT
     product_name,
